@@ -1,7 +1,7 @@
 //package com.ilse.springBootMySql.infrastructure;
 //
-//import com.ilse.springBootMySql.domain.User;
-//import com.ilse.springBootMySql.domain.UserRepository;
+//import com.ilse.springBootMySql.domain.user.User;
+//import com.ilse.springBootMySql.domain.user.UserRepository;
 //
 //public class UserRepositoryImpl implements UserRepository {
 //

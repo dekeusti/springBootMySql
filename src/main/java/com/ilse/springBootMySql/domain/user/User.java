@@ -1,4 +1,6 @@
-package com.ilse.springBootMySql.domain;
+package com.ilse.springBootMySql.domain.user;
+
+import com.ilse.springBootMySql.shared.EqualByStateObject;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,7 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class User {
+public class User extends EqualByStateObject {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
@@ -16,6 +18,12 @@ public class User {
     private String email;
 
     public User() {
+    }
+
+    public User(Integer id, String name, String email) {
+        this.id  = id;
+        this.name = name;
+        this.email = email;
     }
 
     public User(String name, String email) {

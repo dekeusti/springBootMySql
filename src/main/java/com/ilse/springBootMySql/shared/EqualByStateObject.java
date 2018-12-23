@@ -1,0 +1,30 @@
+package com.ilse.springBootMySql.shared;
+
+import java.util.Optional;
+
+import static org.apache.commons.lang3.builder.EqualsBuilder.reflectionEquals;
+import static org.apache.commons.lang3.builder.HashCodeBuilder.reflectionHashCode;
+import static org.apache.commons.lang3.builder.ToStringBuilder.reflectionToString;
+import static org.apache.commons.lang3.builder.ToStringStyle.SHORT_PREFIX_STYLE;
+
+public abstract class EqualByStateObject {
+    @Override
+    public boolean equals(Object other) {
+        return Optional.ofNullable(other)
+                .filter(o -> this.getClass().equals(o.getClass()))
+                .map(o -> reflectionEquals(this, other))
+                .orElse(false);
+    }
+
+    @Override
+    public int hashCode() {
+        return reflectionHashCode(this);
+    }
+
+    @Override
+    public String toString() {
+        return reflectionToString(this, SHORT_PREFIX_STYLE);
+    }
+}
+
+
